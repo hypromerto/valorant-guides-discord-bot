@@ -1,5 +1,6 @@
 import importlib
 
+
 class CommandManager():
 
     def __init__(self, command_strings):
@@ -9,7 +10,8 @@ class CommandManager():
         command_map = {}
 
         for command in command_strings:
-            module = importlib.import_module('.' + command, package=__package__)
+            module = importlib.import_module('.' + command,
+                                             package=__package__)
 
             CommandClass = getattr(module, command.capitalize())
 
@@ -24,4 +26,3 @@ class CommandManager():
             await self.command_map[command].execute(event)
         else:
             await event.channel.send("Invalid command.")
-            

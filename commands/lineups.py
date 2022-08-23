@@ -1,4 +1,3 @@
-import discord
 
 
 class Lineups():
@@ -7,4 +6,4 @@ class Lineups():
         self.command = command
 
     async def execute(self, message):
-        await message.channel.send("Lineups")   
+        await message.channel.send("Lineups")

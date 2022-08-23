@@ -2,6 +2,7 @@ import discord
 
 from commands.command_manager import CommandManager
 
+
 class LineupsClient(discord.Client):
 
     def __init__(self, prefix, command_manager: CommandManager):
@@ -14,9 +15,9 @@ class LineupsClient(discord.Client):
 
     async def on_message(self, event):
         if not self.is_valid_message(event):
-            return 
+            return
 
-        #Trimming the prefix
+        # Trimming the prefix
         command = event.content.lstrip(self.prefix)
 
         await self.command_manager.resolve_and_execute(command, event)
