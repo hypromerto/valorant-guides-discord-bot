@@ -7,4 +7,4 @@ class Lineups():
         self.command = command
 
     async def execute(self, message):
-        print('Lineups command is active')
+        await message.channel.send("Lineups")   

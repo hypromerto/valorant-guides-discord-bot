@@ -19,12 +19,9 @@ class CommandManager():
 
         return command_map
 
-    def resolve(self, command):
-
-        if self.command_map[command]:
-            return self.command_map[command]
-
-
-
-
-
+    async def resolve_and_execute(self, command, event):
+        if command in self.command_map:
+            await self.command_map[command].execute(event)
+        else:
+            await event.channel.send("Invalid command.")
+            

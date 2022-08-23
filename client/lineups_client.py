@@ -12,5 +12,14 @@ class LineupsClient(discord.Client):
     async def on_ready(self):
         print(f'Logged on as {self.user}!')
 
-    async def on_message(self, message):
-        await self.command_manager.resolve(message.content).execute(message)
+    async def on_message(self, event):
+        if not self.is_valid_message(event):
+            return 
+
+        #Trimming the prefix
+        command = event.content.lstrip(self.prefix)
+
+        await self.command_manager.resolve_and_execute(command, event)
+
+    def is_valid_message(self, message):
+        return message.content.startswith(self.prefix) and message.author != self.user
