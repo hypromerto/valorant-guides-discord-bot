@@ -1,1 +1,2 @@
 prefix = "/"
+commands = ["lineups"]
