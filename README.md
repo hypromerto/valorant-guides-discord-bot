@@ -1,1 +1,1 @@
-# valorant-guides-discord-bot
+# Valorant Guides Discord Bot
