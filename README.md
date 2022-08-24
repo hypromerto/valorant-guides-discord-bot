@@ -1,1 +1,1 @@
-# lineups-discord-bot
+# valorant-guides-discord-bot
