@@ -7,9 +7,11 @@ commands = ["guides"]
     [[views.components]]
         type = 'select'
         domain_type = 'AGENT'
+        placeholder = 'Select an agent...'
         options = ['Sova', 'Viper']
 
     [[views.components]]
         type = 'select'
         domain_type = 'MAP'
+        placeholder = 'Select a map...'
         options = ['Haven', 'Bind']

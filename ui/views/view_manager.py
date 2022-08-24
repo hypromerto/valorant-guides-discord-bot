@@ -15,7 +15,8 @@ def init_components_of_view(components):
             for option in component['options']:
                 select_options.append(discord.SelectOption(label=option))
 
-            view_components.append(Select(component['domain_type'], select_options))
+            view_components.append(Select(select_type=component['domain_type'], placeholder=component['placeholder'],
+                                          options=select_options))
 
     return view_components
 
@@ -34,7 +35,6 @@ def inject_views(views):
 
 
 class ViewManager:
-
     """Manages all the views of the commands.
 
         This class injects all the properties of a view, but it does not instantiate them.

@@ -9,4 +9,4 @@ class Guides:
     async def execute(self, message):
         view = view_manager.init_view('GuidesView')
 
-        await message.channel.send("Lineups", view=view)
+        await message.channel.send("Select an agent and a map:", view=view)
