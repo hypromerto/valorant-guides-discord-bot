@@ -1,2 +1,15 @@
-prefix = "/"
-commands = ["lineups"]
+prefix = "!"
+commands = ["guides"]
+
+[[views]]
+    name = "guides_view"
+
+    [[views.components]]
+        type = 'select'
+        domain_type = 'AGENT'
+        options = ['Sova', 'Viper']
+
+    [[views.components]]
+        type = 'select'
+        domain_type = 'MAP'
+        options = ['Haven', 'Bind']

@@ -8,7 +8,10 @@ class LineupsClient(discord.Client):
     def __init__(self, prefix, command_manager: CommandManager):
         self.prefix = prefix
         self.command_manager = command_manager
-        super().__init__()
+
+        intents = discord.Intents.default()
+        intents.message_content = True
+        super().__init__(intents=intents)
 
     async def on_ready(self):
         print(f'Logged on as {self.user}!')
