@@ -1,4 +1,5 @@
 from infra.application.app import view_manager
+import discord
 
 
 class Guides:

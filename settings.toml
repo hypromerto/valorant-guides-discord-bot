@@ -15,3 +15,24 @@ commands = ["guides"]
         domain_type = 'MAP'
         placeholder = 'Select a map...'
         options = ['Haven', 'Bind']
+
+
+[[agent_guides_data]]
+
+    agent_name = 'Sova'
+    [[agent_guides_data.haven]]
+        [[agent_guides_data.haven.lineups]]
+
+            ability_name = 'recon_bolt'
+
+            [[agent_guides_data.haven.lineups.attack]]
+                [[agent_guides_data.haven.lineups.attack.a]]
+                    [[agent_guides_data.haven.lineups.attack.a.backsite]]
+                    [[agent_guides_data.haven.lineups.attack.a.short]]
+                [[agent_guides_data.haven.lineups.attack.b]]
+                [[agent_guides_data.haven.lineups.attack.c]]
+
+            [[agent_guides_data.haven.lineups.defence]]
+                [[agent_guides_data.haven.lineups.defence.a]]
+                [[agent_guides_data.haven.lineups.defence.b]]
+                [[agent_guides_data.haven.lineups.defence.c]]
