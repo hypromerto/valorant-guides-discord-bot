@@ -2,4 +2,4 @@ from enum import Enum
 
 
 class ViewType(Enum):
-    GuidesView = 1
+    GUIDES_VIEW = 1

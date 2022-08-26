@@ -2,7 +2,7 @@ prefix = "!"
 commands = ["guides"]
 
 [[views]]
-    name = "guides_view"
+    view_type = "GUIDES_VIEW"
     base_component_domain_types = ['AGENT', 'MAP']
 
     [[views.components]]

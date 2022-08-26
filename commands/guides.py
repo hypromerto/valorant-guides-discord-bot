@@ -6,6 +6,6 @@ class Guides:
         self.command = command
 
     async def execute(self, message):
-        view = view_manager.init_view('GuidesView')
+        view = view_manager.init_view('GUIDES_VIEW')
 
         await message.channel.send("Select an agent and a map:", view=view)
