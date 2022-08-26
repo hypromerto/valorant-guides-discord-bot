@@ -1,9 +1,10 @@
 from enum import Enum
 
 
-class SelectType(Enum):
+class DomainType(Enum):
     AGENT = 1
     MAP = 2
     GUIDE_TYPE = 3
-    SIDE = 4
-    SITE = 5
+    ABILITY = 4
+    SIDE = 5
+    SITE = 6

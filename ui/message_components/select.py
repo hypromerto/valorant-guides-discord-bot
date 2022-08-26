@@ -1,14 +1,8 @@
 import discord.ui
 
-from enums.select_type import SelectType
-
-
 class Select(discord.ui.Select):
 
-    def __init__(self, select_type: SelectType, options, placeholder):
-        super().__init__()
-        self.select_type = select_type
-        self.options = options
-        self.placeholder = placeholder
-
+    def __init__(self, domain_type, options, placeholder):
+        super().__init__(options=options, placeholder=placeholder)
+        self.domain_type = domain_type
 
