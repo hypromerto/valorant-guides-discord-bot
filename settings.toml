@@ -2,32 +2,99 @@ prefix = "!"
 commands = ["guides"]
 
 [[views]]
-    view_type = "GUIDES_VIEW"
-    base_component_domain_types = ['AGENT', 'MAP']
+view_type = "guides_view"
+base_component_domain_types = [ "agent" ]
 
-    [[views.components]]
-        type = 'select'
-        domain_type = 'AGENT'
-        placeholder = 'Select an agent...'
+  [[views.components]]
+  type = "select"
+  domain_type = "agent"
+  placeholder = "Select an agent..."
+
+  [[views.components]]
+  type = "select"
+  domain_type = "map"
+  placeholder = "Select a map..."
+
+  [[views.components]]
+  type = "select"
+  domain_type = "guide"
+  placeholder = "Select a guide..."
+
+  [[views.components]]
+  type = "select"
+  domain_type = "ability"
+  placeholder = "Select an ability..."
+
+  [[views.components]]
+  type = "select"
+  domain_type = "guide"
+  placeholder = "Select a guide..."
+
+  [[views.components]]
+  type = "select"
+  domain_type = "side"
+  placeholder = "Select a side..."
+
+  [[views.components]]
+  type = "select"
+  domain_type = "area"
+  placeholder = "Select an area..."
+
 
 
 [[agent_guides_data]]
+value = "Sova"
 
-    agent = 'Sova'
-    [[agent_guides_data.map]]
-        [[agent_guides_data.haven]]
-            [[agent_guides_data.haven.lineups]]
+  [[agent_guides_data.maps]]
+  value = "Haven"
 
-                ability = 'Recon Bolt'
+    [[agent_guides_data.maps.guides]]
+    value = "Lineups"
 
-                [[agent_guides_data.haven.lineups.attack]]
-                    [[agent_guides_data.haven.lineups.attack.a]]
-                        [[agent_guides_data.haven.lineups.attack.a.backsite]]
-                        [[agent_guides_data.haven.lineups.attack.a.short]]
-                    [[agent_guides_data.haven.lineups.attack.b]]
-                    [[agent_guides_data.haven.lineups.attack.c]]
+      [[agent_guides_data.maps.guides.abilities]]
+      value = "Recon Bolt"
 
-                [[agent_guides_data.haven.lineups.defence]]
-                    [[agent_guides_data.haven.lineups.defence.a]]
-                    [[agent_guides_data.haven.lineups.defence.b]]
-                    [[agent_guides_data.haven.lineups.defence.c]]
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Attack"
+        areas = [ "A", "B", "C", "Double Doors" ]
+
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Defence"
+        areas = [ "A", "B", "C", "Double Doors" ]
+  [[agent_guides_data.maps]]
+    value = "Bind"
+
+      [[agent_guides_data.maps.guides]]
+      value = "Lineups"
+
+        [[agent_guides_data.maps.guides.abilities]]
+        value = "Recon Bolt"
+
+          [[agent_guides_data.maps.guides.abilities.sides]]
+          value = "Attack"
+          areas = [ "A", "B" ]
+
+          [[agent_guides_data.maps.guides.abilities.sides]]
+          value = "Defence"
+          areas = [ "A", "B" ]
+
+
+[[agent_guides_data]]
+value = "Viper"
+
+  [[agent_guides_data.maps]]
+  value = "Bind"
+
+    [[agent_guides_data.maps.guides]]
+    value = "Lineups"
+
+      [[agent_guides_data.maps.guides.abilities]]
+      value = "Snakebite"
+
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Attack"
+        areas = [ "A", "B", "Hooqah" ]
+
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Defence"
+        areas = [ "A", "B", "Hooqah" ]

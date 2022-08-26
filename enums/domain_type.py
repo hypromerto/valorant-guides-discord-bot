@@ -2,9 +2,9 @@ from enum import Enum
 
 
 class DomainType(Enum):
-    AGENT = 1
-    MAP = 2
-    GUIDE_TYPE = 3
-    ABILITY = 4
-    SIDE = 5
-    SITE = 6
+    agent = 1
+    map = 2
+    guide = 3
+    ability = 4
+    side = 5
+    area = 6
