@@ -90,7 +90,7 @@ def init_pagination_view_components(components):
     for component in components:
 
         if component['type'] == discord.ComponentType.button.name:
-            view_components.append(Button(emoji=component['emoji']))
+            view_components.append(Button(emoji=component['emoji'], action=component['action']))
 
     return view_components
 

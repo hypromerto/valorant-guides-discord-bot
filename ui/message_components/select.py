@@ -1,3 +1,5 @@
+import io
+
 import discord.ui
 
 from enums.domain_type import DomainType
@@ -30,7 +32,7 @@ class Select(discord.ui.Select):
             if files:
                 next_view = self.view.change_to_next_view(files)
 
-                file = discord.File(files[0], filename='image.png')
+                file = discord.File(io.BytesIO(files[1]), filename='image.png')
 
                 await interaction.response.send_message(file=file, content=content_message, view=next_view)
 

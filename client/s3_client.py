@@ -20,7 +20,7 @@ class S3Client:
         return options
 
     def download_all_objects(self, query_dir):
-        files = []
+        files = {}
 
         buf = io.BytesIO()
 
@@ -31,9 +31,11 @@ class S3Client:
             if obj['Key'] == query_dir:
                 continue
 
-            self.s3_client.download_fileobj(self.bucket_name, obj['Key'], buf)
-            file_content = io.BytesIO(buf.getvalue())
+            file_name = int((obj['Key'].rsplit('/', 1)[-1]).split('.', 1)[0])
 
-            files.append(file_content)
+            self.s3_client.download_fileobj(self.bucket_name, obj['Key'], buf)
+            file_content = buf.getvalue()
+
+            files[file_name] = file_content
 
         return files
