@@ -1,5 +1,9 @@
 import discord
+from discord import SelectOption
 
+from enums.domain_type import DomainType
+from infra.config.global_values import s3_client
+from ui.message_components.select import Select
 from ui.state_machine import calculate_state_transitions_for_guides
 from ui.views.pagination_view import PaginationView
 
@@ -25,12 +29,27 @@ class GuidesView(discord.ui.View):
         if current_key:
             query_string = '_'.join([current_key, value])
 
-        next_domain_type = calculate_state_transitions_for_guides(current_domain_type)
         self.remove_item(self.view_components[current_domain_type][current_key])
 
-        self.add_item(self.view_components[next_domain_type.name][query_string])
+        if current_domain_type == DomainType.area.name:
+            select_options = []
+
+            query = query_string.replace('_', '/').lower() + '/'
+
+            options = s3_client.get_all_options(query)
+
+            for option in options:
+                select_options.append(SelectOption(label=option))
+
+            self.add_item(Select(options=select_options, key=query_string, placeholder='Select a lineup...',
+                                 domain_type='guide_result'))
+
+        else:
+            next_domain_type = calculate_state_transitions_for_guides(current_domain_type)
+
+            self.add_item(self.view_components[next_domain_type.name][query_string])
 
         return self
 
-    def change_to_next_view(self):
-        return PaginationView(self.state_machine.get_next_view('guides_view')['components'])
+    def change_to_next_view(self, files):
+        return PaginationView(self.state_machine.get_next_view('guides_view')['components'], files)

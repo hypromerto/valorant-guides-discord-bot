@@ -8,3 +8,4 @@ class DomainType(Enum):
     ability = 4
     side = 5
     area = 6
+    guide_result = 7

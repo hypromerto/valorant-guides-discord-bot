@@ -1,7 +1,7 @@
 import discord.ui
 
 from enums.domain_type import DomainType
-from infra.config.global_values import emoji_data
+from infra.config.global_values import emoji_data, s3_client
 from ui.state_machine import previous_states_of_state
 
 
@@ -13,21 +13,31 @@ class Select(discord.ui.Select):
         self.key = key
 
     async def callback(self, interaction: discord.Interaction):
-
         content_message = self.prepare_message()
 
-        if self.domain_type != DomainType.area.name:  # Last selection
+        if self.domain_type != DomainType.guide_result.name:
+
             await interaction.message.edit(content=content_message,
                                            view=self.view.update_view(self.domain_type, self.key, self.values[0]))
 
             await interaction.response.defer()
         else:
 
-            next_view = self.view.change_to_next_view()
+            query_dir = self.key.replace('_', '/').lower() + '/' + self.values[0] + '/'
 
-            await interaction.response.send_message(content=content_message, view=next_view)
+            files = s3_client.download_all_objects(query_dir)
+
+            if files:
+                next_view = self.view.change_to_next_view(files)
+
+                file = discord.File(files[0], filename='image.png')
+
+                await interaction.response.send_message(file=file, content=content_message, view=next_view)
 
     def prepare_message(self):
+
+        if self.domain_type == DomainType.guide_result.name:
+            return f'**{self.values[0]}**'
 
         previous_choices = self.key.split('_')
 

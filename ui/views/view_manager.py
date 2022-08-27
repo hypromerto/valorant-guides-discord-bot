@@ -1,9 +1,9 @@
 import discord
+from discord import SelectOption
 
 from enums.view_type import ViewType
 from ui.message_components.button import Button
 from ui.message_components.select import Select
-from ui.message_components.select_option import SelectOption
 
 """Manages all the views of the commands.
 
@@ -71,7 +71,7 @@ def init_guides_view_components(components, agent_guides_data):
                 select_options = []
 
                 for option in value:
-                    select_options.append(SelectOption(label=option, key=key))
+                    select_options.append(SelectOption(label=option))
 
                 select_object = Select(domain_type=component['domain_type'], placeholder=component['placeholder'],
                                        options=select_options, key=key)
