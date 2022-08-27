@@ -1,10 +1,15 @@
 import discord
 
 from enums.view_type import ViewType
-from infra.config.global_values import emoji_data
+from ui.message_components.button import Button
 from ui.message_components.select import Select
 from ui.message_components.select_option import SelectOption
-from ui.views.guides_view import GuidesView
+
+"""Manages all the views of the commands.
+
+    This file injects all the properties of a view, but it does not instantiate them.
+    This is because view instantiation must be done during runtime, in an event loop.
+"""
 
 
 def add_to_guide_options(join_list, value, options, domain_type):
@@ -79,42 +84,32 @@ def init_guides_view_components(components, agent_guides_data):
     return view_components
 
 
+def init_pagination_view_components(components):
+    view_components = []
+
+    for component in components:
+
+        if component['type'] == discord.ComponentType.button.name:
+            view_components.append(Button(emoji=component['emoji']))
+
+    return view_components
+
+
 def inject_views(views, agent_guides_data):
     view_map = {}
 
     for view in views:
         components = []
+
+        view_map[view['view_type']] = {'next_view': view['next_view']}
+
         if view['view_type'] == ViewType.guides_view.name:
             components = init_guides_view_components(view['components'], agent_guides_data)
+            view_map[view['view_type']]['base_component_domain_types'] = view['base_component_domain_types']
 
-        view_map[view["view_type"]] = {'components': components,
-                                       'base_component_domain_types': view['base_component_domain_types']}
+        elif view['view_type'] == ViewType.pagination_view.name:
+            components = init_pagination_view_components(view['components'])
+
+        view_map[view['view_type']]['components'] = components
 
     return view_map
-
-
-class ViewManager:
-    """Manages all the views of the commands.
-
-        This class injects all the properties of a view, but it does not instantiate them.
-        This is because view instantiation must be done during runtime, in an event loop.
-    """
-
-    def __init__(self, views, agent_guides_data):
-        self.view_map = inject_views(views, agent_guides_data)
-
-    def init_view(self, view_type):
-        if view_type in self.view_map:
-
-            if view_type == ViewType.guides_view.name:
-                for key, val in self.view_map[view_type]['components'].items():
-                    for key, val in val.items():
-                        for option in val.options:
-
-                            formatted_option = option.label.replace(" ", "_")
-
-                            if formatted_option in emoji_data:
-                                option.emoji = emoji_data[formatted_option]
-
-                return GuidesView(self.view_map[view_type]['components'],
-                                  self.view_map[view_type]['base_component_domain_types'])

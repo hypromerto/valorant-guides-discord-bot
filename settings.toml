@@ -4,6 +4,7 @@ commands = ["guides"]
 [[views]]
 view_type = "guides_view"
 base_component_domain_types = [ "agent" ]
+next_view = "pagination_view"
 
   [[views.components]]
   type = "select"
@@ -39,6 +40,19 @@ base_component_domain_types = [ "agent" ]
   type = "select"
   domain_type = "area"
   placeholder = "Select an area..."
+
+[[views]]
+view_type = "pagination_view"
+next_view = ""
+
+  #Back button
+  [[views.components]]
+  type = "button"
+  emoji = "\U000023EA"
+
+  [[views.components]]
+  type = "button"
+  emoji = "\U000023E9"
 
 [emojis]
 Sova = "<:sovaguidesbot:1012819739569041408>"

@@ -1,16 +1,18 @@
 import discord
 
 from ui.state_machine import calculate_state_transitions_for_guides
+from ui.views.pagination_view import PaginationView
 
 
 class GuidesView(discord.ui.View):
 
-    def __init__(self, components, base_component_domain_types):
+    def __init__(self, components, base_component_domain_types, state_machine):
         super().__init__()
 
         self.view_components = components
         self.current_query = []
         self.base_component_domain_types = base_component_domain_types
+        self.state_machine = state_machine
 
         for base_type in self.base_component_domain_types:
             if base_type in self.view_components:
@@ -29,3 +31,6 @@ class GuidesView(discord.ui.View):
         self.add_item(self.view_components[next_domain_type.name][query_string])
 
         return self
+
+    def change_to_next_view(self):
+        return PaginationView(self.state_machine.get_next_view('guides_view')['components'])

@@ -1,5 +1,6 @@
 import discord.ui
 
+from enums.domain_type import DomainType
 from infra.config.global_values import emoji_data
 from ui.state_machine import previous_states_of_state
 
@@ -12,6 +13,21 @@ class Select(discord.ui.Select):
         self.key = key
 
     async def callback(self, interaction: discord.Interaction):
+
+        content_message = self.prepare_message()
+
+        if self.domain_type != DomainType.area.name:  # Last selection
+            await interaction.message.edit(content=content_message,
+                                           view=self.view.update_view(self.domain_type, self.key, self.values[0]))
+
+            await interaction.response.defer()
+        else:
+
+            next_view = self.view.change_to_next_view()
+
+            await interaction.response.send_message(content=content_message, view=next_view)
+
+    def prepare_message(self):
 
         previous_choices = self.key.split('_')
 
@@ -33,7 +49,4 @@ class Select(discord.ui.Select):
 
         content_message += f'**{self.domain_type.capitalize()}:**  {emoji_value} {self.values[0]}\n'
 
-        await interaction.message.edit(content=content_message,
-                                       view=self.view.update_view(self.domain_type, self.key, self.values[0]))
-
-        await interaction.response.defer()
+        return content_message

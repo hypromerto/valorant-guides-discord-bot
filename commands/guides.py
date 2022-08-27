@@ -1,4 +1,4 @@
-from infra.application.app import view_manager
+from infra.application.app import init_view
 
 
 class Guides:
@@ -7,6 +7,6 @@ class Guides:
         self.command = command
 
     async def execute(self, message):
-        view = view_manager.init_view('guides_view')
+        view = init_view('guides_view')
 
         await message.channel.send(view=view)
