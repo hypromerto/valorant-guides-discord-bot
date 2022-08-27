@@ -1,6 +1,7 @@
 import discord
 
 from enums.view_type import ViewType
+from infra.config.global_values import emoji_data
 from ui.message_components.select import Select
 from ui.message_components.select_option import SelectOption
 from ui.views.guides_view import GuidesView
@@ -106,5 +107,14 @@ class ViewManager:
         if view_type in self.view_map:
 
             if view_type == ViewType.guides_view.name:
+                for key, val in self.view_map[view_type]['components'].items():
+                    for key, val in val.items():
+                        for option in val.options:
+
+                            formatted_option = option.label.replace(" ", "_")
+
+                            if formatted_option in emoji_data:
+                                option.emoji = emoji_data[formatted_option]
+
                 return GuidesView(self.view_map[view_type]['components'],
                                   self.view_map[view_type]['base_component_domain_types'])

@@ -1,5 +1,6 @@
 import discord.ui
 
+from infra.config.global_values import emoji_data
 from ui.state_machine import previous_states_of_state
 
 
@@ -19,9 +20,18 @@ class Select(discord.ui.Select):
         previous_states = previous_states_of_state(self.domain_type)
 
         for index, previous_state in enumerate(previous_states):
-            content_message += f'**{previous_state.name.capitalize()}:**   {previous_choices[index]}\n'
+            emoji_value = ""
+            formatted_emoji_key = previous_choices[index].replace(' ', '_')
+            if formatted_emoji_key in emoji_data:
+                emoji_value = emoji_data[formatted_emoji_key]
+            content_message += f'**{previous_state.name.capitalize()}:**  {emoji_value} {previous_choices[index]}\n'
 
-        content_message += f'**{self.domain_type.capitalize()}:**   {self.values[0]}\n'
+        emoji_value = ""
+        formatted_emoji_key = self.values[0].replace(' ', '_')
+        if formatted_emoji_key in emoji_data:
+            emoji_value = emoji_data[formatted_emoji_key]
+
+        content_message += f'**{self.domain_type.capitalize()}:**  {emoji_value} {self.values[0]}\n'
 
         await interaction.message.edit(content=content_message,
                                        view=self.view.update_view(self.domain_type, self.key, self.values[0]))

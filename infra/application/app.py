@@ -5,7 +5,6 @@ from ui.views.view_manager import ViewManager
 
 view_manager = ViewManager(settings.views, settings.agent_guides_data)
 
-
 # This variable is declared globally, as not all commands utilise views.
 # The commands that wish to utilise views can access this variable separately,
 # without having to inject the view manager into each command.

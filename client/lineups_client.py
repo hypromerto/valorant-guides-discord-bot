@@ -11,6 +11,7 @@ class LineupsClient(discord.Client):
 
         intents = discord.Intents.default()
         intents.message_content = True
+        intents.emojis = True
         super().__init__(intents=intents)
 
     async def on_ready(self):
