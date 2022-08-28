@@ -30,7 +30,7 @@ class Select(discord.ui.Select):
             files = s3_client.download_all_objects(query_dir)
 
             if files:
-                next_view = self.view.change_to_next_view(files)
+                next_view = self.view.change_to_next_view(files, content_message)
 
                 file = discord.File(io.BytesIO(files[1]), filename='image.png')
 

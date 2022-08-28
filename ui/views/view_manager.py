@@ -2,7 +2,6 @@ import discord
 from discord import SelectOption
 
 from enums.view_type import ViewType
-from ui.message_components.button import Button
 from ui.message_components.select import Select
 
 """Manages all the views of the commands.
@@ -84,32 +83,17 @@ def init_guides_view_components(components, agent_guides_data):
     return view_components
 
 
-def init_pagination_view_components(components):
-    view_components = []
-
-    for component in components:
-
-        if component['type'] == discord.ComponentType.button.name:
-            view_components.append(Button(emoji=component['emoji'], action=component['action']))
-
-    return view_components
-
-
 def inject_views(views, agent_guides_data):
     view_map = {}
 
     for view in views:
-        components = []
-
         view_map[view['view_type']] = {'next_view': view['next_view']}
 
         if view['view_type'] == ViewType.guides_view.name:
-            components = init_guides_view_components(view['components'], agent_guides_data)
+            options = get_guide_options(agent_guides_data)
+
             view_map[view['view_type']]['base_component_domain_types'] = view['base_component_domain_types']
-
-        elif view['view_type'] == ViewType.pagination_view.name:
-            components = init_pagination_view_components(view['components'])
-
-        view_map[view['view_type']]['components'] = components
+            view_map[view['view_type']]['components'] = view['components']
+            view_map[view['view_type']]['options'] = options
 
     return view_map

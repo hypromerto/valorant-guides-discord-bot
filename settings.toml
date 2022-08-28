@@ -45,17 +45,6 @@ next_view = "pagination_view"
 view_type = "pagination_view"
 next_view = ""
 
-  #Back button
-  [[views.components]]
-  type = "button"
-  emoji = "\U000023EA"
-  action = "back"
-
-  #Forward button
-  [[views.components]]
-  type = "button"
-  emoji = "\U000023E9"
-  action = "forward"
 
 [emojis]
 Sova = "<:sovaguidesbot:1012819739569041408>"
