@@ -6,7 +6,7 @@ import boto3
 class S3Client:
 
     def __init__(self, access_key_id, secret_access_key):
-        self.bucket_name = 'valorant-guides-bot'
+        self.bucket_name = 'valorant-guide-bot'
         self.s3_client = boto3.client('s3', aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key)
 
     def get_all_options(self, query):
