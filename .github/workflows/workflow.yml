@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 12.x ]
-        app-name: [ 'valorant-guides-deploy' ]
+        app-name: ['valorant-guides-deploy']
         deployment-group: [ 'githubdeploy' ]
         repo: [ 'hypromerto/valorant-guides-discord-bot' ]
 
@@ -17,15 +17,15 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: us-east-1
 
       - name: Deploy to AWS
         run: |
           aws deploy create-deployment \
-          --application-name ${{ matrix.app-name }} \
+          --application-name ${{matrix.app-name}} \
           --deployment-config-name CodeDeployDefault.OneAtATime \
-          --deployment-group-name ${{ matrix.deployment-group }} \
-          --description "GitHub Deployment for the ${{ matrix.app-name }}-${{ github.sha }}" \
-          --github-location repository=${{ matrix.repo }},commitId=${{ github.sha }}
+          --deployment-group-name ${{matrix.deployment-group}} \
+          --description "GitHub Deployment for the ${{ matrix.app-name }}-${{github.sha}}" \
+          --github-location repository=${{matrix.repo}},commitId=${{github.sha}}
