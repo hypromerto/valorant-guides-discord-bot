@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /home/ec2-user/valorant-guides-discord-bot/
+source venv/bin/activate
+python application.py
