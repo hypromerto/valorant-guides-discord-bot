@@ -1,8 +1,4 @@
 #!/bin/bash
-sudo yum install -y amazon-linux-extras
-sudo amazon-linux-extras enable python3.8
-sudo yum install python3.8
-sudo yum -y install python3-pip
 cd /home/ec2-user/valorant-guides-discord-bot
 python3.8 -m venv venv
 source venv/bin/activate
