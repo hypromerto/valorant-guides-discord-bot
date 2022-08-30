@@ -21,7 +21,7 @@ def init_bot():
     client = LineupsClient(prefix=settings.prefix,
                            command_manager=command_manager)
 
-    return client, settings.token
+    return client
 
 
 def init_view(view_type):

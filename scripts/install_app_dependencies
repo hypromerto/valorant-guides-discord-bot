@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /home/ec2-user/valorant-guides-discord-bot
-python3.8 -m venv venv
+sudo python3.8 -m venv venv
+sudo chown -R ec2-user:ec2-user venv
 source venv/bin/activate
 sudo python -m pip install -r requirements.txt
