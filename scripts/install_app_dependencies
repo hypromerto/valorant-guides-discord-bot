@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo yum -y install python-pip
+sudo yum -y install python3-pip
 cd /home/ec2-user/valorant-guides-discord-bot
 python3.8 -m venv venv
 source venv/bin/activate
