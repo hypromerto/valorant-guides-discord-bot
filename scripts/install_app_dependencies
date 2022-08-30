@@ -1,6 +1,7 @@
 #!/bin/bash
-sudo yum update && sudo yum install python3-pip
+sudo yum -y install python3-pip
+sudo yum install python3.8
 cd /home/ec2-user/valorant-guides-discord-bot
 python3.8 -m venv venv
 source venv/bin/activate
-sudo pip install -r requirements.txt
+sudo python3 -m pip install -r requirements.txt
