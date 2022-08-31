@@ -9,7 +9,7 @@ next_view = "pagination_view"
   [[views.components]]
   type = "select"
   domain_type = "agent"
-  placeholder = "Select an agent..."
+  placeholder = "Select an agent test..."
 
   [[views.components]]
   type = "select"
