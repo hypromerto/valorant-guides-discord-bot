@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/ec2-user/valorant-guides-discord-bot/
-source venv/bin/activate
-python3.8 application.py
+sudo systemctl daemon-reload
+
+sudo systemctl enable discord-bot.service
