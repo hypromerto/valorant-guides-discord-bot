@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo chmod 644 /home/ec2-user/valorant-guides-discord-bot
+
 sudo systemctl daemon-reload
 
 sudo systemctl enable discord-bot.service
