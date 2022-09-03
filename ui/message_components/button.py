@@ -43,6 +43,6 @@ class Button(discord.ui.Button):
 
         next_image = discord.File(io.BytesIO(next_image), filename=f'{next_image_index}.png')
 
-        await interaction.response.send_message(content=self.view.content_message, file=next_image, view=self.view, ephemeral=True)
+        await interaction.response.edit_message(content=self.view.content_message, attachments=next_image, view=self.view)
 
-        await interaction.message.delete()
+        #await interaction.message.delete()
