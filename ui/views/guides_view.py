@@ -11,7 +11,7 @@ from ui.views.pagination_view import PaginationView
 class GuidesView(discord.ui.View):
 
     def __init__(self, component_data, options, base_component_domain_types, state_machine):
-        super().__init__()
+        super().__init__(timeout=None)
 
         self.component_data = component_data
         self.options = options

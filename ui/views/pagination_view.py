@@ -14,7 +14,7 @@ def init_pagination_view_components():
 class PaginationView(discord.ui.View):
 
     def __init__(self, files, content_message):
-        super().__init__()
+        super().__init__(timeout=None)
 
         self.view_components = init_pagination_view_components()
         self.files = files
