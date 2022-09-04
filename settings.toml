@@ -70,7 +70,7 @@ value = "Sova"
 
         [[agent_guides_data.maps.guides.abilities.sides]]
         value = "Attack"
-        areas = [ "A", "C" ]
+        areas = [ "A", "B", "C" ]
 
 [[agent_guides_data]]
 value = "Fade"
