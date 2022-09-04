@@ -102,5 +102,5 @@ value = "Viper"
 
         [[agent_guides_data.maps.guides.abilities.sides]]
         value = "Attack"
-        areas = [ "A", "B"]
+        areas = [ "A", "B", "C"]
 
