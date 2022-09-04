@@ -69,71 +69,7 @@ value = "Sova"
 
         [[agent_guides_data.maps.guides.abilities.sides]]
         value = "Attack"
-        areas = [ "A", "B", "C", "Double Doors" ]
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Defence"
-        areas = [ "A", "B", "C", "Double Doors" ]
-
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Shock Dart"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = [ "A", "B", "C", "Double Doors" ]
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Defence"
-        areas = [ "A", "B", "C", "Double Doors" ]
-
-  [[agent_guides_data.maps]]
-    value = "Bind"
-
-      [[agent_guides_data.maps.guides]]
-      value = "Lineups"
-
-        [[agent_guides_data.maps.guides.abilities]]
-        value = "Recon Bolt"
-
-          [[agent_guides_data.maps.guides.abilities.sides]]
-          value = "Attack"
-          areas = [ "A", "B" ]
-
-          [[agent_guides_data.maps.guides.abilities.sides]]
-          value = "Defence"
-          areas = [ "A", "B" ]
-
-        [[agent_guides_data.maps.guides.abilities]]
-        value = "Shock Dart"
-
-          [[agent_guides_data.maps.guides.abilities.sides]]
-          value = "Attack"
-          areas = [ "A", "B" ]
-
-          [[agent_guides_data.maps.guides.abilities.sides]]
-          value = "Defence"
-          areas = [ "A", "B" ]
-
-
-[[agent_guides_data]]
-value = "Viper"
-
-  [[agent_guides_data.maps]]
-  value = "Bind"
-
-    [[agent_guides_data.maps.guides]]
-    value = "Lineups"
-
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Snakebite"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = [ "A", "B", "Hooqah" ]
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Defence"
-        areas = [ "A", "B", "Hooqah" ]
+        areas = [ "A" ]
 
 [[agent_guides_data]]
 value = "Fade"
