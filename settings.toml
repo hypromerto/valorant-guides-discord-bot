@@ -54,6 +54,7 @@ Recon_Bolt = "<:reconboltguidesbot:1012855624406683678>"
 Shock_Dart = "<:shockdartguidesbot:1012855609164582962>"
 Haunt = "<:hauntguidesbot:1013054262588223498>"
 Haven = "<:havenguidesbot:1012883330322157639>"
+Snake_Bite = "<:snakebiteguidesbot:1013048295289012254>"
 
 [[agent_guides_data]]
 value = "Sova"
@@ -86,4 +87,20 @@ value = "Fade"
         [[agent_guides_data.maps.guides.abilities.sides]]
         value = "Attack"
         areas = [ "C" ]
+
+[[agent_guides_data]]
+value = "Viper"
+
+  [[agent_guides_data.maps]]
+  value = "Haven"
+
+    [[agent_guides_data.maps.guides]]
+    value = "Lineups"
+
+      [[agent_guides_data.maps.guides.abilities]]
+      value = "Snake Bite"
+
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Attack"
+        areas = [ "A" ]
 
