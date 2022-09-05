@@ -45,7 +45,6 @@ next_view = "pagination_view"
 view_type = "pagination_view"
 next_view = ""
 
-
 [emojis]
 Sova = "<:sovaguidesbot:1012819739569041408>"
 Viper = "<:viperguidesbot:1012833353071874168>"
