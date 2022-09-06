@@ -54,6 +54,7 @@ Shock_Dart = "<:shockdartguidesbot:1012855609164582962>"
 Haunt = "<:hauntguidesbot:1013054262588223498>"
 Haven = "<:havenguidesbot:1012883330322157639>"
 Snake_Bite = "<:snakebiteguidesbot:1013048295289012254>"
+Poison_Cloud = "<:poisoncloudguidesbot:1013048729835671652>"
 
 [[agent_guides_data]]
 value = "Sova"
@@ -123,4 +124,12 @@ value = "Viper"
         [[agent_guides_data.maps.guides.abilities.sides]]
         value = "Attack"
         areas = [ "A", "B", "C"]
+
+      [[agent_guides_data.maps.guides.abilities]]
+        value = "Poison Cloud"
+
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Attack"
+        areas = ["C"]
+
 
