@@ -89,9 +89,6 @@ value = "Sova"
         value = "Attack"
         areas = [ "Mid" ]
 
-    [[agent_guides_data.maps.guides]]
-    value = "Lineups"
-
       [[agent_guides_data.maps.guides.abilities]]
       value = "Recon Bolt"
 
