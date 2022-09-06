@@ -89,6 +89,16 @@ value = "Sova"
         value = "Attack"
         areas = [ "Mid" ]
 
+    [[agent_guides_data.maps.guides]]
+    value = "Lineups"
+
+      [[agent_guides_data.maps.guides.abilities]]
+      value = "Recon Bolt"
+
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Defence"
+        areas = [ "A" ]
+
 [[agent_guides_data]]
 value = "Fade"
 
