@@ -139,4 +139,18 @@ value = "Viper"
         value = "Attack"
         areas = ["C"]
 
+  [[agent_guides_data.maps]]
+  value = "Bind"
+
+    [[agent_guides_data.maps.guides]]
+    value = "Lineups"
+
+      [[agent_guides_data.maps.guides.abilities]]
+      value = "Snake Bite"
+
+        [[agent_guides_data.maps.guides.abilities.sides]]
+        value = "Attack"
+        areas = [ "A"]
+
+
 
