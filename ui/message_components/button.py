@@ -36,7 +36,7 @@ class Button(discord.ui.Button):
 
             await interaction.response.defer()
         else:
-            await interaction.response.defer()
+
             query_dir = self.key.replace('_', '/').lower() + '/' + self.value + '/'
 
             files = s3_client.download_all_objects(query_dir)
@@ -46,7 +46,7 @@ class Button(discord.ui.Button):
 
                 file = discord.File(io.BytesIO(files[1]), filename='image.png')
 
-                await interaction.followup.send(file=file, content=content_message, view=next_view)
+                await interaction.response.send_message(file=file, content=content_message, view=next_view)
 
     async def execute_ui_button_callback(self, interaction: discord.Interaction):
 
