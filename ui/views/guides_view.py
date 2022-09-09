@@ -87,15 +87,20 @@ class GuidesView(discord.ui.View):
             self.add_content_message("__**Current Selections:**__")
 
         if self.current_domain_type == DomainType.area.name:
-            select_options = []
 
             query = query_string.replace('_', '/').lower() + '/'
 
             options = s3_client.get_all_options(query)
 
             for option in options:
+                side = option.split('-')[0][:-1]
+
+                style = discord.ButtonStyle.green
+                if side == 'Attack':
+                    style = discord.ButtonStyle.danger
+
                 button = Button(action=ButtonActionType.guide_button, domain_type=DomainType.guide_result.name,
-                                label=option, style=discord.ButtonStyle.green, value=option, key=query_string)
+                                label=option, style=style, value=option, key=query_string)
                 self.current_components.append(button)
                 self.add_item(button)
 
