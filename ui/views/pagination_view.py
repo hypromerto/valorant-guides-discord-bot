@@ -1,12 +1,13 @@
 import discord
 
 from enums.button_action_type import ButtonActionType
+from enums.domain_type import DomainType
 from ui.message_components.button import Button
 
 
 def init_pagination_view_components():
-    back_button = Button(emoji='\U000023EA', action=ButtonActionType.back.name)
-    forward_button = Button(emoji='\U000023E9', action=ButtonActionType.forward.name)
+    back_button = Button(emoji='\U000023EA', action=ButtonActionType.back.name, style=discord.ButtonStyle.danger, domain_type=DomainType.ui_button.name)
+    forward_button = Button(emoji='\U000023E9', action=ButtonActionType.forward.name, style=discord.ButtonStyle.success, domain_type=DomainType.ui_button.name)
 
     return [back_button, forward_button]
 

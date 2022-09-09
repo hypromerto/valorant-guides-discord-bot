@@ -9,4 +9,4 @@ class Guides:
     async def execute(self, message):
         view = init_view('guides_view')
 
-        await message.channel.send(view=view)
+        await message.channel.send(content=view.get_content_message_as_string(), view=view)

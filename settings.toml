@@ -9,37 +9,22 @@ next_view = "pagination_view"
   [[views.components]]
   type = "select"
   domain_type = "agent"
-  placeholder = "Select an agent..."
+  title = "__**Select an agent:**__"
 
   [[views.components]]
   type = "select"
   domain_type = "map"
-  placeholder = "Select a map..."
-
-  [[views.components]]
-  type = "select"
-  domain_type = "guide"
-  placeholder = "Select a guide..."
+  title = "__**Select a map:**__"
 
   [[views.components]]
   type = "select"
   domain_type = "ability"
-  placeholder = "Select an ability..."
-
-  [[views.components]]
-  type = "select"
-  domain_type = "guide"
-  placeholder = "Select a guide..."
-
-  [[views.components]]
-  type = "select"
-  domain_type = "side"
-  placeholder = "Select a side..."
+  title = "__**Select an ability:**__"
 
   [[views.components]]
   type = "select"
   domain_type = "area"
-  placeholder = "Select an area..."
+  title = "__**Select an area:**__"
 
 [[views]]
 view_type = "pagination_view"
@@ -52,7 +37,6 @@ Fade = "<:fadeguidesbot:1013055517456859146>"
 Recon_Bolt = "<:reconboltguidesbot:1012855624406683678>"
 Shock_Dart = "<:shockdartguidesbot:1012855609164582962>"
 Haunt = "<:hauntguidesbot:1013054262588223498>"
-Haven = "<:havenguidesbot:1012883330322157639>"
 Snake_Bite = "<:snakebiteguidesbot:1013048295289012254>"
 Poison_Cloud = "<:poisoncloudguidesbot:1013048729835671652>"
 
@@ -62,39 +46,20 @@ value = "Sova"
   [[agent_guides_data.maps]]
   value = "Haven"
 
-    [[agent_guides_data.maps.guides]]
-    value = "Lineups"
-
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Recon Bolt"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = [ "A", "B", "C", "Garage" ]
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Defence"
-        areas = [ "A" ]
+    [[agent_guides_data.maps.abilities]]
+    value = "Recon Bolt"
+    areas = [ "A", "B", "C", "Garage" ]
 
   [[agent_guides_data.maps]]
   value = "Ascent"
 
-    [[agent_guides_data.maps.guides]]
-    value = "Lineups"
+    [[agent_guides_data.maps.abilities]]
+    value = "Shock Dart"
+    areas = [ "Mid" ]
 
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Shock Dart"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = [ "Mid" ]
-
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Recon Bolt"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Defence"
-        areas = [ "A" ]
+    [[agent_guides_data.maps.abilities]]
+    value = "Recon Bolt"
+    areas = [ "A" ]
 
 [[agent_guides_data]]
 value = "Fade"
@@ -102,19 +67,9 @@ value = "Fade"
   [[agent_guides_data.maps]]
   value = "Haven"
 
-    [[agent_guides_data.maps.guides]]
-    value = "Lineups"
-
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Haunt"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = [ "C" ]
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Defence"
-        areas = [ "C" ]
+    [[agent_guides_data.maps.abilities]]
+    value = "Haunt"
+    areas = [ "C" ]
 
 [[agent_guides_data]]
 value = "Viper"
@@ -122,35 +77,20 @@ value = "Viper"
   [[agent_guides_data.maps]]
   value = "Haven"
 
-    [[agent_guides_data.maps.guides]]
-    value = "Lineups"
+    [[agent_guides_data.maps.abilities]]
+    value = "Snake Bite"
+    areas = [ "A", "B", "C"]
 
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Snake Bite"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = [ "A", "B", "C"]
-
-      [[agent_guides_data.maps.guides.abilities]]
-        value = "Poison Cloud"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = ["A","C"]
+    [[agent_guides_data.maps.abilities]]
+    value = "Poison Cloud"
+    areas = ["A","C"]
 
   [[agent_guides_data.maps]]
   value = "Bind"
 
-    [[agent_guides_data.maps.guides]]
-    value = "Lineups"
-
-      [[agent_guides_data.maps.guides.abilities]]
-      value = "Snake Bite"
-
-        [[agent_guides_data.maps.guides.abilities.sides]]
-        value = "Attack"
-        areas = [ "A"]
+    [[agent_guides_data.maps.abilities]]
+    value = "Snake Bite"
+    areas = [ "A"]
 
 
 
