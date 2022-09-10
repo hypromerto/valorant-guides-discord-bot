@@ -23,7 +23,7 @@ class LineupsClient(discord.Client):
 client = LineupsClient()
 
 
-@client.tree.command(name="lineups", description="Launch Lineups Guide", guild=discord.Object(id=1008859001380937788))
+@client.tree.command(name="lineups", description="Launch Lineups Guide")
 async def test(interaction: discord.Interaction):
     view = init_view('guides_view')
 
