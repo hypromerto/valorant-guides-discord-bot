@@ -1,5 +1,3 @@
-from client.lineups_client import LineupsClient
-from commands.command_manager import CommandManager
 from enums.view_type import ViewType
 from infra.config.config import settings
 from ui.state_machine import StateMachine
@@ -13,15 +11,6 @@ view_map = inject_views(settings.views, settings.agent_guides_data)
 # without having to inject the view manager into each command.
 
 state_machine = StateMachine(view_map)
-
-
-def init_bot():
-    command_manager = CommandManager(settings.commands)
-
-    client = LineupsClient(prefix=settings.prefix,
-                           command_manager=command_manager)
-
-    return client
 
 
 def init_view(view_type):
