@@ -1,4 +1,5 @@
 import logging
+import time
 
 import boto3
 import watchtower
@@ -24,6 +25,8 @@ logs_client = boto3.client("logs", region_name="eu-central-1")
 handler = watchtower.CloudWatchLogHandler(log_group_name="valorant-guides-bot", log_stream_name="ec2-stream", boto3_client=logs_client)
 
 formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+
+formatter.converter = time.gmtime()
 
 
 handler.setFormatter(formatter)
