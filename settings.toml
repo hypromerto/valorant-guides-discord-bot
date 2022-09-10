@@ -9,22 +9,22 @@ next_view = "pagination_view"
   [[views.components]]
   type = "select"
   domain_type = "agent"
-  title = "__**Select an agent:**__"
+  title = "**Select an agent:**"
 
   [[views.components]]
   type = "select"
   domain_type = "map"
-  title = "__**Select a map:**__"
+  title = "**Select a map:**"
 
   [[views.components]]
   type = "select"
   domain_type = "ability"
-  title = "__**Select an ability:**__"
+  title = "**Select an ability:**"
 
   [[views.components]]
   type = "select"
   domain_type = "area"
-  title = "__**Select an area:**__"
+  title = "**Select an area:**"
 
 [[views]]
 view_type = "pagination_view"

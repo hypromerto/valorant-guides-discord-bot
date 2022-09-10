@@ -66,11 +66,11 @@ class GuidesView(discord.ui.View):
                     if formatted_label in emoji_data:
                         buttons.append(Button(domain_type=domain_type, emoji=emoji_data[formatted_label],
                                               action=ButtonActionType.guide_button, key=key, value=option,
-                                              style=discord.ButtonStyle.blurple))
+                                              style=discord.ButtonStyle.gray))
                     else:
                         buttons.append(
                             Button(domain_type=domain_type, label=option, key=key, action=ButtonActionType.guide_button,
-                                   value=option, style=discord.ButtonStyle.blurple))
+                                   value=option, style=discord.ButtonStyle.gray))
 
         return buttons
 
@@ -82,9 +82,6 @@ class GuidesView(discord.ui.View):
         [self.remove_item(component) for component in self.current_components]
 
         self.current_components = []
-
-        if not self.content_message:
-            self.add_content_message("__**Current Selections:**__")
 
         if self.current_domain_type == DomainType.area.name:
 

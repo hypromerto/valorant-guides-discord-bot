@@ -6,8 +6,8 @@ from ui.message_components.button import Button
 
 
 def init_pagination_view_components():
-    back_button = Button(emoji='\U000023EA', action=ButtonActionType.back.name, style=discord.ButtonStyle.danger, domain_type=DomainType.ui_button.name)
-    forward_button = Button(emoji='\U000023E9', action=ButtonActionType.forward.name, style=discord.ButtonStyle.success, domain_type=DomainType.ui_button.name)
+    back_button = Button(emoji='\U000023EA', action=ButtonActionType.back.name, domain_type=DomainType.ui_button.name)
+    forward_button = Button(emoji='\U000023E9', action=ButtonActionType.forward.name, domain_type=DomainType.ui_button.name)
 
     return [back_button, forward_button]
 
