@@ -1,12 +1,11 @@
-import asyncio
 import io
-import time
 
 import discord.ui
 
 from enums.button_action_type import ButtonActionType
 from enums.domain_type import DomainType
 from infra.config.global_values import emoji_data, s3_client
+from infra.config.logger import logger
 
 
 class Button(discord.ui.Button):
@@ -43,6 +42,8 @@ class Button(discord.ui.Button):
             files = s3_client.download_all_objects(query_dir)
 
             if files:
+                logger.info(f'Successfully downloaded {len(files)} files.')
+
                 next_view = self.view.change_to_next_view(files, content_message)
 
                 file = discord.File(io.BytesIO(files[1]), filename='image.png')

@@ -3,6 +3,7 @@ from discord import app_commands
 
 from infra.application.app import init_view
 from infra.config.global_values import token
+from infra.config.logger import logger
 
 
 class LineupsClient(discord.Client):
@@ -24,10 +25,11 @@ client = LineupsClient()
 
 
 @client.tree.command(name="lineups", description="Launch Lineups Guide")
-async def test(interaction: discord.Interaction):
+async def lineups(interaction: discord.Interaction):
+    logger.info("Lineups command called.")
     view = init_view('guides_view')
 
     await interaction.response.send_message(content=view.get_content_message_as_string(), view=view)
 
 
-client.run(token)
+client.run(token, root_logger=True)
