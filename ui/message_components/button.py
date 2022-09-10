@@ -36,8 +36,7 @@ class Button(discord.ui.Button):
 
             await interaction.response.defer()
         else:
-            self.disabled = True
-            self.view.activate_all_other_buttons(self.value)
+            self.view.disable_button(self.value)
 
             query_dir = self.key.replace('_', '/').lower() + '/' + self.value + '/'
 
