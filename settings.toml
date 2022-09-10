@@ -69,7 +69,28 @@ value = "Fade"
 
     [[agent_guides_data.maps.abilities]]
     value = "Haunt"
-    areas = [ "C" ]
+    areas = [ "C"]
+
+  [[agent_guides_data.maps]]
+  value = "Icebox"
+
+    [[agent_guides_data.maps.abilities]]
+    value = "Haunt"
+    areas = [ "A"]
+
+  [[agent_guides_data.maps]]
+  value = "Pearl"
+
+    [[agent_guides_data.maps.abilities]]
+    value = "Haunt"
+    areas = [ "A", "Mid"]
+
+  [[agent_guides_data.maps]]
+  value = "Ascent"
+
+    [[agent_guides_data.maps.abilities]]
+    value = "Haunt"
+    areas = [ "A"]
 
 [[agent_guides_data]]
 value = "Viper"
