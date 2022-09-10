@@ -46,13 +46,6 @@ class GuidesView(discord.ui.View):
     def remove_last_content_message(self):
         self.content_message.pop()
 
-    def disable_button(self, disabled_button_value):
-        for button in self.current_components:
-            if button.value != disabled_button_value and button.disabled:
-                button.disabled = False
-            elif button.value == disabled_button_value:
-                button.disabled = True
-
     def get_content_message_as_string(self):
         title = ''
 

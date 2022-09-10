@@ -36,8 +36,6 @@ class Button(discord.ui.Button):
 
             await interaction.response.defer()
         else:
-            self.view.disable_button(self.value)
-
             query_dir = self.key.replace('_', '/').lower() + '/' + self.value + '/'
 
             files = s3_client.download_all_objects(query_dir)
