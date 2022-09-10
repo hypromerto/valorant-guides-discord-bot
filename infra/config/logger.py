@@ -26,9 +26,6 @@ handler = watchtower.CloudWatchLogHandler(log_group_name="valorant-guides-bot", 
 
 formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
 
-formatter.converter = time.gmtime()
-
-
 handler.setFormatter(formatter)
 handler.addFilter(NoSetupLogsFilter())
 
