@@ -13,12 +13,9 @@ class LineupsClient(discord.Client):
         intents.emojis = True
         super().__init__(intents=intents)
         self.tree = app_commands.CommandTree(self)
-        self.synced = False
 
-    async def on_ready(self):
-        await self.wait_until_ready()
-        if not self.synced:
-            await self.tree.sync()
+    async def setup_hook(self):
+        await self.tree.sync()
 
         print(f'Logged on as {self.user}!')
 
