@@ -113,5 +113,16 @@ value = "Viper"
     value = "Snake Bite"
     areas = [ "A"]
 
+  [[agent_guides_data.maps]]
+  value = "Ascent"
+
+    [[agent_guides_data.maps.abilities]]
+    value = "Snake Bite"
+    areas = [ "A", "B"]
+
+    [[agent_guides_data.maps.abilities]]
+    value = "Poison Cloud"
+    areas = ["Mid"]
+
 
 
