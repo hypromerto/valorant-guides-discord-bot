@@ -11,6 +11,18 @@ def calculate_state_transitions_for_guides(current_state):
     elif current_state == DomainType.area.name:
         return DomainType.guide_result
 
+
+def calculate_previous_state_transitions_for_guides(current_state):
+    if current_state == DomainType.guide_result.name:
+        return DomainType.area
+    elif current_state == DomainType.area.name:
+        return DomainType.ability
+    elif current_state == DomainType.ability.name:
+        return DomainType.map
+    elif current_state == DomainType.map.name:
+        return DomainType.agent
+
+
 class StateMachine:
 
     def __init__(self, view_data):

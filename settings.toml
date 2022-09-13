@@ -1,6 +1,3 @@
-prefix = "!"
-commands = ["guides"]
-
 [[views]]
 view_type = "guides_view"
 base_component_domain_types = [ "agent" ]

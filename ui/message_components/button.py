@@ -19,16 +19,29 @@ class Button(discord.ui.Button):
 
     async def callback(self, interaction: discord.Interaction):
 
-        if self.domain_type == DomainType.ui_button.name:
+        if self.action == ButtonActionType.photo_back.name or self.action == ButtonActionType.photo_forward.name:
             await self.execute_ui_button_callback(interaction)
+        elif self.action == ButtonActionType.filter_back.name:
+            await self.execute_filter_back_button_callback(interaction)
         else:
             await self.execute_guide_button_callback(interaction)
+
+    async def execute_filter_back_button_callback(self, interaction: discord.Interaction):
+        updated_view = self.view.go_back_view()
+
+        self.view.remove_last_content_message()
+
+        await interaction.message.edit(content=self.view.get_content_message_as_string(),
+                                       view=updated_view)
+
+        await interaction.response.defer()
+
 
     async def execute_guide_button_callback(self, interaction: discord.Interaction):
         content_message = self.prepare_message()
 
         if self.domain_type != DomainType.guide_result.name:
-            updated_view = self.view.update_view(self.key, self.value)
+            updated_view = self.view.update_view(self.value)
             self.view.add_content_message(content_message)
 
             await interaction.message.edit(content=self.view.get_content_message_as_string(),
@@ -56,17 +69,17 @@ class Button(discord.ui.Button):
 
         next_image_index = self.view.current_image_key
 
-        if self.action == ButtonActionType.back.name:
+        if self.action == ButtonActionType.photo_back.name:
 
             next_image_index = self.view.current_image_key - 1
 
             if next_image_index == 1:
                 self.disabled = True
 
-            self.view.enable_button_with_type(ButtonActionType.forward)
+            self.view.enable_button_with_type(ButtonActionType.photo_forward)
 
             next_image = self.view.files[next_image_index]
-        elif self.action == ButtonActionType.forward.name:
+        elif self.action == ButtonActionType.photo_forward.name:
 
             next_image_index = self.view.current_image_key + 1
             image_count = len(self.view.files)
@@ -74,7 +87,7 @@ class Button(discord.ui.Button):
             if next_image_index == image_count:
                 self.disabled = True
 
-            self.view.enable_button_with_type(ButtonActionType.back)
+            self.view.enable_button_with_type(ButtonActionType.photo_back)
 
             next_image = self.view.files[next_image_index]
 

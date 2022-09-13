@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class ButtonActionType(Enum):
-    back = 1
-    forward = 2
+    photo_back = 1
+    photo_forward = 2
     guide_button = 3
+    filter_back = 4

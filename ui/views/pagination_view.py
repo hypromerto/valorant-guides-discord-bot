@@ -1,13 +1,12 @@
 import discord
 
 from enums.button_action_type import ButtonActionType
-from enums.domain_type import DomainType
 from ui.message_components.button import Button
 
 
 def init_pagination_view_components():
-    back_button = Button(emoji='\U000023EA', action=ButtonActionType.back.name, style=discord.ButtonStyle.gray, domain_type=DomainType.ui_button.name)
-    forward_button = Button(emoji='\U000023E9', action=ButtonActionType.forward.name, style=discord.ButtonStyle.gray, domain_type=DomainType.ui_button.name)
+    back_button = Button(emoji='\U000023EA', action=ButtonActionType.photo_back.name, style=discord.ButtonStyle.gray)
+    forward_button = Button(emoji='\U000023E9', action=ButtonActionType.photo_forward.name, style=discord.ButtonStyle.gray)
 
     return [back_button, forward_button]
 
@@ -24,8 +23,8 @@ class PaginationView(discord.ui.View):
 
         for component in self.view_components:
 
-            if component.action == ButtonActionType.back.name or (
-                    len(files) == 1 and component.action == ButtonActionType.forward.name):
+            if component.action == ButtonActionType.photo_back.name or (
+                    len(files) == 1 and component.action == ButtonActionType.photo_forward.name):
                 component.disabled = True
 
             self.add_item(component)

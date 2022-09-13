@@ -10,12 +10,9 @@ view_map = inject_views(settings.views, settings.agent_guides_data)
 # The commands that wish to utilise views can access this variable separately,
 # without having to inject the view manager into each command.
 
-state_machine = StateMachine(view_map)
-
-
 def init_view(view_type):
     if view_type in view_map:
 
         if view_type == ViewType.guides_view.name:
             return GuidesView(view_map[view_type]['components'], view_map[view_type]['options'],
-                              view_map[view_type]['base_component_domain_types'], state_machine)
+                              view_map[view_type]['base_component_domain_types'])

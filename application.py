@@ -17,6 +17,7 @@ class LineupsClient(discord.Client):
 
     async def setup_hook(self):
         await self.tree.sync()
+        await self.tree.sync(guild=discord.Object(1008859001380937788))
 
         print(f'Logged on as {self.user}!')
 
@@ -26,6 +27,14 @@ client = LineupsClient()
 
 @client.tree.command(name="lineups", description="Launch Lineups Guide")
 async def lineups(interaction: discord.Interaction):
+    logger.info("Lineups command called.")
+    view = init_view('guides_view')
+
+    await interaction.response.send_message(content=view.get_content_message_as_string(), view=view)
+
+
+@client.tree.command(name="lineups-test", description="Test Lineups", guild=discord.Object(1008859001380937788))
+async def lineups_test(interaction: discord.Interaction):
     logger.info("Lineups command called.")
     view = init_view('guides_view')
 

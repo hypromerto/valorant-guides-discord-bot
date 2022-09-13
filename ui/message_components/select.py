@@ -18,7 +18,7 @@ class Select(discord.ui.Select):
 
         if self.domain_type != DomainType.guide_result.name:
 
-            updated_view = self.view.update_view(self.key, self.values[0])
+            updated_view = self.view.update_view(self.values[0])
 
             await interaction.message.edit(content=content_message,
                                            view=updated_view)
